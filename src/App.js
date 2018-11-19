@@ -13,6 +13,8 @@ class App extends Component {
     }
     
     render() {
+        // inserting product objects from products prop passed down from App component
+        // object values populating rendered ProductDetail components
         const products = this.props.products.map(product => {
             return (
                 <ProductDetail product={product}/>
