@@ -22,14 +22,9 @@ class App extends Component {
         })
         return (
             <div className="App">
-              {/*<Header>*/}
               <Header/>
-              {/*</Header>*/}
-       
           <div className="container">
-      
               <div className="row">
-      
                   <div className="col-md-3">
                       <p className="lead">Shop Name</p>
                       <div className="list-group">
@@ -38,36 +33,17 @@ class App extends Component {
                           <a href="#" className="list-group-item">Category 3</a>
                       </div>
                   </div>
-      
                   <div className="col-md-9">
-                      {/*<Carousel>*/}
                       <Carousel/>
-                      {/*</Carousel>*/}
                       <div className="row">
                           { products }
-                          
-      
-                          
-      
-                          
-      
-                          
-      
                       </div>
-      
                   </div>
-      
               </div>
-      
           </div>
-         
           <div className="container">
-      
               <hr/>
-      
-              {/*<Footer>*/}
               <Footer/>
-              {/*</Footer>*/}
           </div>
             </div>
           );
