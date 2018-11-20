@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 const ProductDetail = props => {
    // create stars
@@ -11,7 +12,6 @@ const ProductDetail = props => {
       let emptyStars = Array(5 - numOfStars).fill(
          <span className="glyphicon glyphicon-star-empty"></span>
       );
-      console.log('emptystars', emptyStars)
       allStars = stars.concat(emptyStars);
       return allStars;
    }
@@ -34,6 +34,7 @@ const ProductDetail = props => {
                      { allStars }
                   </p>
                </div>
+            <Button increment={ props.increment } />
          </div>
       </div>
    )

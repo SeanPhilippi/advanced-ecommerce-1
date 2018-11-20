@@ -9,7 +9,16 @@ import Carousel from './components/Carousel';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            numberOfCartItems: 0
+        };
+        this.increment = this.increment.bind(this);
+    }
+
+    increment = () => {
+        this.setState((prevState) => {
+            return {numberOfCartItems: prevState.numberOfCartItems + 1}
+        })
     }
     
     render() {
@@ -17,12 +26,13 @@ class App extends Component {
         // object values populating rendered ProductDetail components
         const products = this.props.products.map(product => {
             return (
-                <ProductDetail product={product}/>
+                <ProductDetail product={product} increment={this.increment} />
             )
         })
+
         return (
             <div className="App">
-              <Header/>
+              <Header cartItems={ this.state.numberOfCartItems }/>
           <div className="container">
               <div className="row">
                   <div className="col-md-3">

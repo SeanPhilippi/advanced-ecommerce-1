@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../App.css';
 
 class Header extends React.Component {
-
    render() {
       return (
          <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -31,7 +29,7 @@ class Header extends React.Component {
                                  <a href="#">Contact</a>
                            </li>
                            <li >
-                                 <a href="#">Items In Cart (0)</a>
+                                 <a href="#">Items In Cart ({ this.props.cartItems })</a>
                            </li>
                         </ul>
                      </div>
@@ -41,6 +39,7 @@ class Header extends React.Component {
             </nav>
       )
    }
+   
 }
 
 export default Header;
