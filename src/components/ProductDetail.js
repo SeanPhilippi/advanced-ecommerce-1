@@ -7,11 +7,10 @@ const ProductDetail = props => {
    // create stars
    let allStars;
    const insertStars = () => {
-      const numOfStars = rating;
-      let stars = Array(numOfStars).fill(
+      let stars = Array(rating).fill(
          <span className="glyphicon glyphicon-star"></span>
       );
-      let emptyStars = Array(5 - numOfStars).fill(
+      let emptyStars = Array(5 - rating).fill(
          <span className="glyphicon glyphicon-star-empty"></span>
       );
       allStars = stars.concat(emptyStars);
