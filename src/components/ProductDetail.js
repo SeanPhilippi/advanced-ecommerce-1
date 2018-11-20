@@ -2,10 +2,12 @@ import React from 'react';
 import Button from './Button';
 
 const ProductDetail = props => {
+
+   const { rating, imgUrl, price, name, description, reviews, increment } = props.product;
    // create stars
    let allStars;
-   const rating = () => {
-      const numOfStars = props.product.rating;
+   const insertStars = () => {
+      const numOfStars = rating;
       let stars = Array(numOfStars).fill(
          <span className="glyphicon glyphicon-star"></span>
       );
@@ -16,20 +18,21 @@ const ProductDetail = props => {
       return allStars;
    }
    
-   rating();
+   insertStars();
+
 
    return (
       <div className="col-sm-4 col-lg-4 col-md-4">
          <div className="thumbnail">
-               <img src={ props.product.imgUrl } alt=""/>
+               <img src={ imgUrl } alt=""/>
                <div className="caption">
-                  <h4 className="pull-right">{ props.product.price }</h4>
-                  <h4><a href="#">{ props.product.name }</a>
+                  <h4 className="pull-right">{ price }</h4>
+                  <h4><a href="#">{ name }</a>
                   </h4>
-                  <p>{ props.product.description }</p>
+                  <p>{ description }</p>
                </div>
                <div className="ratings">
-                  <p className="pull-right">{ props.product.reviews }</p>
+                  <p className="pull-right">{ reviews }</p>
                   <p>
                      { allStars }
                   </p>
