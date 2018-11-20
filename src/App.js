@@ -7,12 +7,8 @@ import Footer from './components/Footer';
 import Carousel from './components/Carousel';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            numberOfCartItems: 0
-        };
-        this.increment = this.increment.bind(this);
+    state = {
+        numberOfCartItems: 0
     }
 
     increment = () => {
@@ -30,9 +26,11 @@ class App extends Component {
             )
         })
 
+        const { numberOfCartItems} = this.state;
+
         return (
             <div className="App">
-              <Header cartItems={ this.state.numberOfCartItems }/>
+              <Header cartItems={ numberOfCartItems }/>
           <div className="container">
               <div className="row">
                   <div className="col-md-3">
