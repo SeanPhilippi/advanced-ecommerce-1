@@ -3,8 +3,9 @@ import '../App.css';
 
 class Header extends React.Component {
    render() {
+      console.log('cart', this.props.cart)
+      const { cart } = this.props;
 
-      const { cartItems } = this.props;
       return (
          <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
                <div className="container">
@@ -31,7 +32,7 @@ class Header extends React.Component {
                                  <a href="#">Contact</a>
                            </li>
                            <li >
-                                 <a href="#">Items In Cart ({ cartItems })</a>
+                                 <a href="#">Items In Cart ({ cart.length })</a>
                            </li>
                         </ul>
                      </div>

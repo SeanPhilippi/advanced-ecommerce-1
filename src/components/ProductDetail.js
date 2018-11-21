@@ -19,6 +19,14 @@ const ProductDetail = props => {
    
    insertStars();
 
+   const addProduct = () => {
+      const oneProduct = props.product;
+      props.cart.push(oneProduct);
+      console.log(props.cart);
+      // this.setState((prevState) => {
+      //     return {numberOfCartItems: prevState.numberOfCartItems + 1}
+      // })
+   }
 
    return (
       <div className="col-sm-4 col-lg-4 col-md-4">
@@ -36,7 +44,7 @@ const ProductDetail = props => {
                      { allStars }
                   </p>
                </div>
-            <Button increment={ props.increment } />
+            <Button add={ addProduct } />
          </div>
       </div>
    )

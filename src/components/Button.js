@@ -3,10 +3,9 @@ import React from 'react';
 class Button extends React.Component {
 
    render() {
-
-      const { increment } = this.props;
+      const { add } = this.props;
       return (
-         <button onClick={ increment } >
+         <button onClick={ add } >
             Add To Cart
          </button>
       )

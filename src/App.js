@@ -10,30 +10,29 @@ import Carousel from './components/Carousel';
 class App extends Component {
     state = {
         numberOfCartItems: state.numberOfCartItems,
-        products: state.products
-    }
-
-    increment = () => {
-        this.setState((prevState) => {
-            return {numberOfCartItems: prevState.numberOfCartItems + 1}
-        })
+        products: state.products,
+        cart: []
     }
     
     render() {
-        console.log('cartItems', this.state.numberOfCartItems);
+        // console.log('cartItems', this.state.numberOfCartItems);
+
+        const { cart } = this.state;
         // inserting product objects from products prop passed down from App component
         // object values populating rendered ProductDetail components
         const products = this.state.products.map(product => {
             return (
-                <ProductDetail product={product} increment={this.increment} />
+                <ProductDetail product={product} add={this.addProduct} cart={ cart } />
             )
         })
 
-        const { numberOfCartItems} = this.state;
+        // const refreshHeader = () => {
+        //     this.setState({cart: this.state.cart});
+        //  }
 
         return (
             <div className="App">
-                <Header cartItems={ numberOfCartItems }/>
+                <Header cart={ cart } />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
