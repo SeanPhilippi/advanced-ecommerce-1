@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import state from './state';
 import logo from './logo.svg';
 import './App.css';
 import ProductDetail from './components/ProductDetail';
@@ -8,7 +9,8 @@ import Carousel from './components/Carousel';
 
 class App extends Component {
     state = {
-        numberOfCartItems: 0
+        numberOfCartItems: state.numberOfCartItems,
+        products: state.products
     }
 
     increment = () => {
@@ -18,9 +20,10 @@ class App extends Component {
     }
     
     render() {
+        console.log('cartItems', this.state.numberOfCartItems);
         // inserting product objects from products prop passed down from App component
         // object values populating rendered ProductDetail components
-        const products = this.props.products.map(product => {
+        const products = this.state.products.map(product => {
             return (
                 <ProductDetail product={product} increment={this.increment} />
             )
@@ -30,31 +33,31 @@ class App extends Component {
 
         return (
             <div className="App">
-              <Header cartItems={ numberOfCartItems }/>
-          <div className="container">
-              <div className="row">
-                  <div className="col-md-3">
-                      <p className="lead">Shop Name</p>
-                      <div className="list-group">
-                          <a href="#" className="list-group-item">Category 1</a>
-                          <a href="#" className="list-group-item">Category 2</a>
-                          <a href="#" className="list-group-item">Category 3</a>
-                      </div>
-                  </div>
-                  <div className="col-md-9">
-                      <Carousel/>
-                      <div className="row">
-                          { products }
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div className="container">
-              <hr/>
-              <Footer/>
-          </div>
+                <Header cartItems={ numberOfCartItems }/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-3">
+                            <p className="lead">Shop Name</p>
+                            <div className="list-group">
+                                <a href="#" className="list-group-item">Category 1</a>
+                                <a href="#" className="list-group-item">Category 2</a>
+                                <a href="#" className="list-group-item">Category 3</a>
+                            </div>
+                        </div>
+                        <div className="col-md-9">
+                            <Carousel/>
+                            <div className="row">
+                                { products }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="container">
+                    <hr/>
+                    <Footer/>
+                </div>
             </div>
-          );
+        );
     } 
 }
 

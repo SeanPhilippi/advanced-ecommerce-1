@@ -3,7 +3,7 @@ import Button from './Button';
 
 const ProductDetail = props => {
 
-   const { rating, imgUrl, price, name, description, reviews, increment } = props.product;
+   const { rating, imgUrl, price, name, description, reviews } = props.product;
    // create stars
    let allStars;
    const insertStars = () => {
