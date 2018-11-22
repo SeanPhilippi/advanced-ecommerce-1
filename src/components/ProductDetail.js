@@ -18,14 +18,10 @@ const ProductDetail = props => {
    }
    
    insertStars();
-
-   const addProduct = () => {
-      const oneProduct = props.product;
-      props.cart.push(oneProduct);
-      console.log(props.cart);
-      // this.setState((prevState) => {
-      //     return {numberOfCartItems: prevState.numberOfCartItems + 1}
-      // })
+   // call addProduct with propduct object as argument
+   // in handleAdd() so function can be called upon button click
+   const handleAdd = () => {
+      props.add(props.product);
    }
 
    return (
@@ -44,7 +40,7 @@ const ProductDetail = props => {
                      { allStars }
                   </p>
                </div>
-            <Button add={ addProduct } />
+            <Button product={ props.product } add={ handleAdd } />
          </div>
       </div>
    )

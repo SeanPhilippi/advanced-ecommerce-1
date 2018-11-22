@@ -13,26 +13,30 @@ class App extends Component {
         products: state.products,
         cart: []
     }
+
+    addProduct = (product) => {
+        this.setState(prevState => {
+            return {
+                cart: [
+                    ...prevState.cart,
+                    product
+                ]
+            }
+        })
+    }
+    // mapping product components, makes it easier to refer to individual product values
+    // and buttons clicked can refer to the product they are attached to.  
+    products = this.state.products.map(product => {
+        return (
+            <ProductDetail product={product} add={this.addProduct} cart={ this.state.cart } />
+        )
+    })
     
     render() {
-        // console.log('cartItems', this.state.numberOfCartItems);
-
-        const { cart } = this.state;
-        // inserting product objects from products prop passed down from App component
-        // object values populating rendered ProductDetail components
-        const products = this.state.products.map(product => {
-            return (
-                <ProductDetail product={product} add={this.addProduct} cart={ cart } />
-            )
-        })
-
-        // const refreshHeader = () => {
-        //     this.setState({cart: this.state.cart});
-        //  }
 
         return (
             <div className="App">
-                <Header cart={ cart } />
+                <Header cart={ this.state.cart } />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
@@ -46,7 +50,7 @@ class App extends Component {
                         <div className="col-md-9">
                             <Carousel/>
                             <div className="row">
-                                { products }
+                                { this.products }
                             </div>
                         </div>
                     </div>
