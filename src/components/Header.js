@@ -1,7 +1,9 @@
 import React from 'react';
+import Checkout from './Checkout';
 import '../App.css';
 
 class Header extends React.Component {
+
    render() {
       const { cart } = this.props;
 
@@ -34,6 +36,7 @@ class Header extends React.Component {
                                  <a href="#">Items In Cart ({ cart.length })</a>
                            </li>
                         </ul>
+                        <Checkout />
                      </div>
                   
                </div>
