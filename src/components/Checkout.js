@@ -8,11 +8,15 @@ class Checkout extends React.Component {
       fontWeight: 'bold'
    }
 
+   // handleCheckout = () => {
+
+   // }
+
    render() {
       return (
-         <button onClick="" style={this.styling}>
+         <button onClick='' style={this.styling}>
             Checkout
-         </button>
+         </button >
       )
    }
 }

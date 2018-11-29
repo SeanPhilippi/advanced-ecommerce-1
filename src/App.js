@@ -14,29 +14,33 @@ class App extends Component {
         cart: []
     }
 
+    // connecting React to Express backend server
+    componentDidMount() {
+        this.callBackendAPI()
+            .then(res => this.setState({}))
+    }
+
     addProduct = (product) => {
-        this.setState(prevState => {
-            return {
-                cart: [
-                    ...prevState.cart,
-                    product
-                ]
-            }
+        this.setState({
+            cart: [
+                ...this.state.cart,
+                product
+            ]
         })
     }
     // mapping product components, makes it easier to refer to individual product values
     // and buttons clicked can refer to the product they are attached to.  
     products = this.state.products.map(product => {
         return (
-            <ProductDetail product={product} add={this.addProduct} cart={ this.state.cart } />
+            <ProductDetail product={product} add={this.addProduct} cart={this.state.cart} />
         )
     })
-    
+
     render() {
 
         return (
             <div className="App">
-                <Header cart={ this.state.cart } />
+                <Header cart={this.state.cart} />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
@@ -48,20 +52,20 @@ class App extends Component {
                             </div>
                         </div>
                         <div className="col-md-9">
-                            <Carousel/>
+                            <Carousel />
                             <div className="row">
-                                { this.products }
+                                {this.products}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="container">
-                    <hr/>
-                    <Footer/>
+                    <hr />
+                    <Footer />
                 </div>
             </div>
         );
-    } 
+    }
 }
 
 export default App;

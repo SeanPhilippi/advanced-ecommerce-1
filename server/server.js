@@ -1,5 +1,5 @@
 const express = require('express');
-const port = 3003;
+const port = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
@@ -17,7 +17,16 @@ app.use(bodyParser.json());
 const orderRouter = require("./routes/OrderRoutes");
 const productRouter = require("./routes/ProductRoutes");
 
-//
+// get routes
+
+// app.get('/express_backend/products', (req, res) => {
+
+// })
+
+app.get('/express_backend', (req, res) => {
+   res.send({ express: 'Your express backend is connected to React!' });
+})
+
 
 app.use(orderRouter);
 app.use(productRouter);
@@ -29,3 +38,4 @@ app.listen(port, (err) => {
       console.log(`listening on port ${port}`);
    }
 })
+
