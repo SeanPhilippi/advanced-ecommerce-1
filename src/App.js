@@ -15,10 +15,11 @@ class App extends Component {
     }
 
     // connecting React to Express backend server
-    componentDidMount() {
-        this.callBackendAPI()
-            .then(res => this.setState({}))
-    }
+    // componentDidMount() {
+    //     fetch('mongodb://kesto:password1@ds161018.mlab.com:61018/advanced-ecommerce-1/products')
+    //         .then(data => this.setState({ products: data }))
+    //         .catch(console.error);
+    // }
 
     addProduct = (product) => {
         this.setState({
@@ -26,6 +27,15 @@ class App extends Component {
                 ...this.state.cart,
                 product
             ]
+        })
+    }
+
+    handleCheckout = () => {
+        fetch('/', {
+            method: 'post',
+            body: {
+
+            }
         })
     }
     // mapping product components, makes it easier to refer to individual product values

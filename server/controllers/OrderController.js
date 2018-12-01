@@ -14,5 +14,9 @@ exports.createOrder = function (req, res, next) {
   });
 
   order.save();
-  // order.update();
+  // order.update() ?
 }
+
+// create products collection on mlab
+// send list of ids to back-end from client side upon checkout click
+// get request with those ids and save

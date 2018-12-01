@@ -1,17 +1,17 @@
 const express = require('express');
-const port = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
+const config = require('./config/main');
+const port = config.port;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://kesto:password1@ds161018.mlab.com:61018/advanced-ecommerce-1");
+mongoose.connect(config.database);
 
 const app = express();
 
 app.use(express.static('public'));
-
 app.use(bodyParser.json());
 
 const orderRouter = require("./routes/OrderRoutes");
