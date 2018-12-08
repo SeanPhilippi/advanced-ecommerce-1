@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const { list, show } = require("../controllers/ProductController");
+const { getProducts } = require("../controllers/OrderController");
 
-router.get("/products", list);
-router.get("/products/:id", show);
+// @route   /
+// @desc    get products to display in store
+// @access  Public
+router.get('/', getProducts);
 
 module.exports = router;

@@ -1,9 +1,9 @@
 const mongoose = require('mongoose'),
-  Shema = mongoose.Schema;
+  Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
 
-  cart: [
+  cart: [{
     id: {
       type: Number,
       required: true
@@ -16,10 +16,7 @@ const OrderSchema = new Schema({
       type: String,
       required: true
     }
-  ]
-    type: Array,
-  required: true
-}
+  }]
 });
 
-module.exports = mongoose.model('models', ModelSchema);
+module.exports = mongoose.model('Order', OrderSchema);

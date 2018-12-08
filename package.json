@@ -12,11 +12,13 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.3.14",
+    "nodemon": "^1.18.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "nodemon server.js",
     "build": "react-scripts build",
     "test": "npm run lint && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import state from './state';
-import logo from './logo.svg';
 import './App.css';
 import ProductDetail from './components/ProductDetail';
 import Header from './components/Header';
@@ -15,11 +14,22 @@ class App extends Component {
     }
 
     // connecting React to Express backend server
-    // componentDidMount() {
-    //     fetch('mongodb://kesto:password1@ds161018.mlab.com:61018/advanced-ecommerce-1/products')
-    //         .then(data => this.setState({ products: data }))
-    //         .catch(console.error);
-    // }
+
+    // WHERE I LEFT OFF
+    // maybe I don't need controllers and models at all
+    // figure out .get express action I would need if I need one at all? 
+    // how do I fetch my products collection data from mlab?  
+
+    componentDidMount() {
+        fetch('http://mongodb://kesto:password1@ds161018.mlab.com:61018/advanced-ecommerce-1/collections/products')
+            .then(res => {
+                res.json().then(data => {
+                    console.log(data);
+                    return this.setState({ products: data })
+                })
+                    .catch(console.error);
+            })
+    }
 
     addProduct = (product) => {
         this.setState({
