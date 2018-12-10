@@ -1,8 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
 const orderRouter = require("./routes/OrderRoutes");
+const Order = require('../models/OrderModel');
 const productRouter = require("./routes/ProductRoutes");
 const app = express();
 // DB config
@@ -28,7 +29,15 @@ app.use('/orders', orderRouter);
 
 // ORDERS
 app.use(orderRouter);
-router.post('/orders', createOrder);
+// submit order, post to mlab
+router.post('/orders', (req, res) => {
+   console.log(req.body)
+   const newOrder = new Order(req.body);
+   newOrder.save()
+   // .then(item => {
+   //    res.send(`${item} saved to database!`)
+   // })
+});
 
 
 // PRODUCTS
