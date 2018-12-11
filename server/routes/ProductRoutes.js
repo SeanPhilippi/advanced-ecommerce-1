@@ -6,6 +6,6 @@ const { getProducts } = require("../controllers/OrderController");
 // @route   /
 // @desc    get products to display in store
 // @access  Public
-router.get('/', getProducts);
+// router.get('/', getProducts);
 
 module.exports = router;
