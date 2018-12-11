@@ -3,14 +3,11 @@
 // currently app.using them twice...
 
 
-
 const express = require('express');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
 const mongoose = require('mongoose');
-const orderRouter = require("./routes/OrderRoutes");
-const Order = require('./models/OrderModel');
-const productRouter = require("./routes/ProductRoutes");
+const orders = require("./routes/api/OrderRoutes");
+const products = require("./routes/api/ProductRoutes");
 const app = express();
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -26,29 +23,13 @@ mongoose.connect(db)
    .catch(err => console.log(err));
 
 // Use routes
-app.use('/products', productRouter);
-app.use('/orders', orderRouter);
+app.use('/products', products);
+app.use('/orders', orders);
 
 
 app.get('/express_backend', (req, res) => {
    res.send({ express: 'Your express backend is connected to React!' });
 })
-
-// ORDERS
-app.use(orderRouter);
-// submit order, post to mlab
-app.post('/orders', (req, res) => {
-   console.log('req body', req.body)
-   const newOrder = new Order(req.body);
-   newOrder.save()
-   // .then(item => {
-   //    res.send(`${item} saved to database!`)
-   // })
-});
-
-
-// PRODUCTS
-app.use(productRouter);
 
 
 
