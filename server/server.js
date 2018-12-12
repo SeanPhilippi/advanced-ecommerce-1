@@ -11,8 +11,7 @@ const products = require("./routes/api/ProductRoutes");
 const app = express();
 // DB config
 const db = require('./config/keys').mongoURI;
-app.set('port', 8080);
-const port = 3002;
+const port = 5000;
 
 // Body Parser middleware
 app.use(bodyParser.json());
@@ -23,8 +22,8 @@ mongoose.connect(db)
    .catch(err => console.log(err));
 
 // Use routes
-app.use('/products', products);
-app.use('/orders', orders);
+app.use(products);
+app.use(orders);
 
 
 app.get('/express_backend', (req, res) => {

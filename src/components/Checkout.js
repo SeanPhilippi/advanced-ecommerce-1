@@ -8,13 +8,22 @@ class Checkout extends React.Component {
       fontWeight: 'bold'
    }
 
-   // handleCheckout = () => {
+   handleCheckout() {
+      fetch('/orders', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(this.props.cart)
+      })
+         .then(res => res.json())
+         .catch(err => console.log(err))
+   }
 
-   // }
 
    render() {
       return (
-         <button onClick='' style={this.styling}>
+         <button onClick={() => this.handleCheckout()} style={this.styling}>
             Checkout
          </button >
       )

@@ -8,27 +8,21 @@ import Carousel from './components/Carousel';
 
 class App extends Component {
     state = {
-        numberOfCartItems: state.numberOfCartItems,
         products: state.products,
         cart: []
     }
 
     // connecting React to Express backend server
 
-    // WHERE I LEFT OFF
-    // maybe I don't need controllers and models at all
-    // figure out .get express action I would need if I need one at all? 
-    // how do I fetch my products collection data from mlab?  
-
     componentDidMount() {
-        fetch('http://mongodb://kesto:password1@ds161018.mlab.com:61018/advanced-ecommerce-1/collections/products')
-            .then(res => {
-                res.json().then(data => {
-                    console.log(data);
-                    return this.setState({ products: data })
-                })
-                    .catch(console.error);
+        fetch('/products')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                this.setState({ products: data })
             })
+            .catch(err => console.log(err));
+
     }
 
     addProduct = (product) => {
@@ -40,14 +34,14 @@ class App extends Component {
         })
     }
 
-    handleCheckout = () => {
-        fetch('/', {
-            method: 'post',
-            body: {
+    // handleCheckout = () => {
+    //     fetch('/', {
+    //         method: 'post',
+    //         body: {
 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
     // mapping product components, makes it easier to refer to individual product values
     // and buttons clicked can refer to the product they are attached to.  
     products = this.state.products.map(product => {

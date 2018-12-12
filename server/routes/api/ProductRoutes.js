@@ -12,7 +12,7 @@ router.get("/test", (req, res) => res.json({ msg: "Products Works" }));
 // @route   /
 // @desc    get products to display in store
 // @access  Public
-router.get('/', (req, res) => {
+router.get('/products', (req, res) => {
   Product.find({}).then(eachOne => {
     res.json(eachOne);
   })

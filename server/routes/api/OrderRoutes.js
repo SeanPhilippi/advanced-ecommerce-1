@@ -7,14 +7,15 @@ const Order = require('../../models/OrderModel');
 // @route   POST api/orders
 // @desc    submit/save order
 // @access  Public
-router.post('/', (req, res) => {
-  Order.create({
-    order: [{
-      id: req.body.id,
-      name: req.body.name,
-      price: req.body.price
-    }]
+router.post('/orders', (req, res) => {
+  const newOrder = new Order({
+    req.body.map()
+    order: []
+
   })
+  console.log(newOrder)
+  newOrder.save().then(res => res.json())
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
