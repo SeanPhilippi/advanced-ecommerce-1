@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import state from './state';
+// import state from './state';
 import './App.css';
 import ProductDetail from './components/ProductDetail';
 import Header from './components/Header';
@@ -8,7 +8,7 @@ import Carousel from './components/Carousel';
 
 class App extends Component {
     state = {
-        products: state.products,
+        products: [],
         cart: []
     }
 
@@ -18,7 +18,7 @@ class App extends Component {
         fetch('/products')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log('data', data);
                 this.setState({ products: data })
             })
             .catch(err => console.log(err));

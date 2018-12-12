@@ -8,14 +8,23 @@ const Order = require('../../models/OrderModel');
 // @desc    submit/save order
 // @access  Public
 router.post('/orders', (req, res) => {
-  const newOrder = new Order({
-    req.body.map()
-    order: []
-
+  const newOrder = new Order();
+  req.body.map(item => {
+    const product = {};
+    product.id = item.id;
+    product.name = item.name;
+    product.price = item.price;
+    newOrder.order.push(product);
   })
-  console.log(newOrder)
-  newOrder.save().then(res => res.json())
-    .catch(err => console.log(err));
-});
+  newOrder.save()
+    .catch(err => console.log('error', err));
+})
+
+
+// order:[{
+//   id: req.body.id,
+//   name: req.body.name,
+//   price: req.body.price
+// }]
 
 module.exports = router;
