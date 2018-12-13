@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../../models/ProductModel');
 
-// const { getProducts } = require("../../controllers/OrderController");
-
 // @route   GET api/products/test
 // @desc    Tests products route
 // @access  Public

@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../../models/OrderModel');
 
-// const { createOrder } = require("../../controllers/OrderController");
-
 // @route   POST api/orders
 // @desc    submit/save order
 // @access  Public
@@ -19,12 +17,5 @@ router.post('/orders', (req, res) => {
   newOrder.save()
     .catch(err => console.log('error', err));
 })
-
-
-// order:[{
-//   id: req.body.id,
-//   name: req.body.name,
-//   price: req.body.price
-// }]
 
 module.exports = router;

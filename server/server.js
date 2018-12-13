@@ -1,7 +1,4 @@
 // run server using 'node server.js' from server folder
-// fix routes, have them in server.js and remove importing of route files? 
-// currently app.using them twice...
-
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -25,12 +22,9 @@ mongoose.connect(db)
 app.use(products);
 app.use(orders);
 
-
 app.get('/express_backend', (req, res) => {
    res.send({ express: 'Your express backend is connected to React!' });
 })
-
-
 
 app.listen(port, (err) => {
    if (err) {

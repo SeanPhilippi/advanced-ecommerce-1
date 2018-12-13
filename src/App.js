@@ -13,7 +13,6 @@ class App extends Component {
     }
 
     // connecting React to Express backend server
-
     componentDidMount() {
         fetch('/products')
             .then(res => res.json())
@@ -33,17 +32,6 @@ class App extends Component {
             ]
         })
     }
-
-    // handleCheckout = () => {
-    //     fetch('/', {
-    //         method: 'post',
-    //         body: {
-
-    //         }
-    //     })
-    // }
-    // mapping product components, makes it easier to refer to individual product values
-    // and buttons clicked can refer to the product they are attached to.  
 
     render() {
 
