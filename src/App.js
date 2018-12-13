@@ -44,13 +44,14 @@ class App extends Component {
     // }
     // mapping product components, makes it easier to refer to individual product values
     // and buttons clicked can refer to the product they are attached to.  
-    products = this.state.products.map(product => {
-        return (
-            <ProductDetail product={product} add={this.addProduct} cart={this.state.cart} />
-        )
-    })
 
     render() {
+
+        const products = this.state.products.map(product => {
+            return (
+                <ProductDetail product={product} add={this.addProduct} cart={this.state.cart} />
+            )
+        })
 
         return (
             <div className="App">
@@ -68,7 +69,7 @@ class App extends Component {
                         <div className="col-md-9">
                             <Carousel />
                             <div className="row">
-                                {this.products}
+                                {products}
                             </div>
                         </div>
                     </div>
